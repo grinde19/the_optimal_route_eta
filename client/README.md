@@ -1,12 +1,40 @@
-# React + Vite
+# 🧭 Frontend - React + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación de interfaz para creación y asignación de rutas, login y visualización de entregas.
 
-Currently, two official plugins are available:
+## 🧪 Tecnologías
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- React Router
+- Context API (auth)
+- Axios (con interceptor)
+- Yup + React Hook Form
+- TypeScript
 
-## Expanding the ESLint configuration
+## 🚀 Scripts
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+## 📁 Estructura
+
+```
+client/
+├── components/         # Componentes UI reutilizables
+├── context/            # AuthContext
+├── hooks/              # Custom hooks (si aplica)
+├── layouts/            # MainLayout general
+├── pages/              # Vistas (LoginPage, AdminPage, MisRutasPage)
+├── services/           # Servicios HTTP
+└── AppRoutes.tsx       # Rutas protegidas
+```
+
+## 🛠 Funcionalidades
+
+- Login de usuario (admin/delivery)
+- Vista de rutas disponibles
+- Formulario de creación de rutas (admin)
+- Registro de nuevos deliveries
+- Asignación de rutas desde admin o por delivery mismo
