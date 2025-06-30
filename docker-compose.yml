@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: rutasuser
+      POSTGRES_PASSWORD: rutaspass
+      POSTGRES_DB: rutasdb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U rutasuser"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./server
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://rutasuser:rutaspass@db:5432/rutasdb
+    ports:
+      - "3000:3000"
+
+  client:
+    build: ./client
+    ports:
+      - "5173:80"
+
+volumes:
+  pgdata:
